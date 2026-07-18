@@ -40,6 +40,13 @@ test("server-renders the IROS 2026 workshop page", async () => {
   assert.match(html, /Greg Hager/);
   assert.ok(html.indexOf("Invited speakers") < html.indexOf("Four objectives"));
   assert.ok(html.indexOf("Edward Adelson") < html.indexOf("Raunaq Bhirangi"));
+  assert.ok(html.indexOf("Invited speakers") < html.indexOf("Panelists"));
+  assert.ok(html.indexOf("Panelists") < html.indexOf("Four objectives"));
+  assert.match(html, /Krishna Murthy Jatavallabhula/);
+  assert.match(html, /Moderator/);
+  assert.match(html, /More names will be revealed soon\./);
+  assert.match(html, /href="https:\/\/openreview\.net\/group\?id=IEEE\.org\/IROS\/2026\/Workshop\/Scalable_Tactile_Manipulation#tab-your-consoles"/);
+  assert.doesNotMatch(html, /Submission information|OpenReview portal coming soon/);
   assert.doesNotMatch(html, /not a sequence of passive talks/i);
 });
 

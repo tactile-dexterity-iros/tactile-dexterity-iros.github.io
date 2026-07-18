@@ -43,6 +43,25 @@ const speakers = [
   },
 ];
 
+const panelists = [
+  {
+    name: "Krishna Murthy Jatavallabhula",
+    affiliation: "Johns Hopkins University",
+    role: "Panelist",
+    image: "/people/krishna-murthy-jatavallabhula.jpg",
+    url: "https://www.cs.jhu.edu/faculty/krishna-murthy-jatavallabhula/",
+  },
+  {
+    name: "Greg Hager",
+    affiliation: "Johns Hopkins University",
+    role: "Moderator",
+    image: "/people/greg-hager.jpg",
+    url: "https://www.cs.jhu.edu/hager/",
+  },
+];
+
+const openReviewUrl = "https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/Scalable_Tactile_Manipulation#tab-your-consoles";
+
 const topics = [
   "Scalable tactile sensors, tactile skins, and sensor integration",
   "Tactile modeling, simulation, synthesis, and sim-to-real transfer",
@@ -116,8 +135,8 @@ export default function Home() {
           <a href="#call-for-papers">Call for papers</a>
           <a href="#organizers">Organizers</a>
         </nav>
-        <a className="header-cta" href="#submissions">
-          Submission details <span aria-hidden="true">↓</span>
+        <a className="header-cta" href={openReviewUrl} target="_blank" rel="noreferrer">
+          Submit on OpenReview <Arrow />
         </a>
       </header>
 
@@ -234,6 +253,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section panelists-section" id="panelists">
+        <div className="panelists-heading">
+          <div>
+            <p className="kicker">03 / Panel discussion</p>
+            <h2>Panelists</h2>
+          </div>
+          <p>A guided discussion on the open questions shaping tactile sensing and dexterity.</p>
+        </div>
+        <div className="panelist-grid">
+          {panelists.map((panelist) => (
+            <a
+              className="panelist-card"
+              href={panelist.url}
+              target="_blank"
+              rel="noreferrer"
+              key={panelist.name}
+            >
+              <img src={panelist.image} alt={`Portrait of ${panelist.name}`} />
+              <div>
+                <span className="panelist-role">{panelist.role}</span>
+                <h3>{panelist.name}</h3>
+                <p>{panelist.affiliation}</p>
+              </div>
+              <Arrow />
+            </a>
+          ))}
+          <div className="panelist-card panelist-card-placeholder">
+            <span className="panelist-placeholder-mark" aria-hidden="true">+</span>
+            <div>
+              <span className="panelist-role">Coming soon</span>
+              <h3>Additional panelists</h3>
+              <p>More names will be revealed soon.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section objectives-section" aria-labelledby="objectives-title">
         <div className="section-heading compact-heading">
           <p className="kicker">What we will examine</p>
@@ -251,7 +307,7 @@ export default function Home() {
 
       <section className="section structure" id="format">
         <div className="structure-header">
-          <p className="kicker kicker-light">03 / Workshop format</p>
+          <p className="kicker kicker-light">04 / Workshop format</p>
           <h2>Built for exchange.</h2>
         </div>
         <div className="structure-grid">
@@ -286,7 +342,7 @@ export default function Home() {
 
       <section className="section cfp" id="call-for-papers">
         <div className="cfp-heading">
-          <p className="kicker kicker-light">04 / Call for papers</p>
+          <p className="kicker kicker-light">05 / Call for papers</p>
           <h2>Share work that moves touch from the lab into the world.</h2>
         </div>
         <div className="cfp-copy rich-copy rich-copy-light">
@@ -294,8 +350,24 @@ export default function Home() {
             We welcome <strong>4–8 page papers</strong> describing ongoing research, recently completed work, or previously published or concurrently submitted work. Submissions should follow the <strong>IROS paper format</strong>. The workshop is non-archival, and we particularly encourage early-stage ideas, emerging research directions, system demonstrations, datasets, benchmarks, and work in progress.
           </p>
           <p>
-            Authors of accepted submissions will be invited to present during the poster and demo session. Up to four submissions will also be selected for <strong>10-minute spotlight presentations</strong> during the workshop. Submissions will be evaluated by external reviewers.
+            Authors of accepted submissions will be invited to present during the poster and demo session. Up to four submissions will also be selected for <strong>10-minute spotlight presentations</strong> during the workshop. Submissions will be evaluated by external reviewers, and at least one author of each accepted submission is expected to attend and present in person.
           </p>
+        </div>
+
+        <div className="cfp-details" aria-label="Submission dates and link">
+          <div>
+            <span>Paper deadline</span>
+            <strong><time dateTime="2026-08-17T23:59:00-04:00">August 17, 2026</time></strong>
+            <small>23:59 GMT−4</small>
+          </div>
+          <div>
+            <span>Workshop</span>
+            <strong><time dateTime="2026-09-27">September 27, 2026</time></strong>
+            <small>1:00–5:30 PM · Pittsburgh</small>
+          </div>
+          <a className="cfp-submit" href={openReviewUrl} target="_blank" rel="noreferrer">
+            Submit on OpenReview <Arrow />
+          </a>
         </div>
 
         <div className="demo-callout">
@@ -326,35 +398,8 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className="section submissions" id="submissions">
-        <div className="submission-card">
-          <div className="submission-title">
-            <p className="kicker">Submission information</p>
-            <h2>Put your work in the room.</h2>
-            <p>At least one author of each accepted submission is expected to attend and present in person.</p>
-          </div>
-          <dl>
-            <div>
-              <dt>Paper deadline</dt>
-              <dd>August 17, 2026<br /><span>23:59 GMT−4</span></dd>
-            </div>
-            <div>
-              <dt>Notification</dt>
-              <dd>To be announced</dd>
-            </div>
-            <div>
-              <dt>Workshop</dt>
-              <dd>September 27, 2026<br /><span>1:00–5:30 PM</span></dd>
-            </div>
-          </dl>
-          <span className="button button-disabled" aria-disabled="true">
-            OpenReview portal coming soon
-          </span>
-        </div>
-      </section>
-
       <section className="section organizers-section" id="organizers">
-        <p className="kicker organizers-kicker">05 / Organizers</p>
+        <p className="kicker organizers-kicker">06 / Organizers</p>
         <div className="organizer-grid">
           {organizers.map((organizer) => (
             <a
