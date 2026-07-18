@@ -276,7 +276,6 @@ export default function Home() {
                 <h3>{panelist.name}</h3>
                 <p>{panelist.affiliation}</p>
               </div>
-              <Arrow />
             </a>
           ))}
           <div className="panelist-card panelist-card-placeholder">

@@ -868,7 +868,7 @@ h1 em {
   border-right: 1px solid var(--line);
   display: grid;
   gap: 20px;
-  grid-template-columns: var(--person-image-size) minmax(0, 1fr) 22px;
+  grid-template-columns: var(--person-image-size) minmax(0, 1fr);
   min-height: 174px;
   padding: 26px;
   transition: background 160ms ease;
@@ -918,16 +918,6 @@ a.panelist-card:focus-visible {
   font-size: 10px;
   line-height: 1.45;
   margin-bottom: 0;
-}
-
-.panelist-card > span:last-child {
-  font-size: 21px;
-  transition: transform 160ms ease;
-}
-
-.panelist-card:hover > span:last-child,
-.panelist-card:focus-visible > span:last-child {
-  transform: translate(3px, -3px);
 }
 
 .panelist-card-placeholder {
@@ -1593,7 +1583,7 @@ footer a {
 
   .panelist-card {
     gap: 14px;
-    grid-template-columns: var(--person-image-size) 1fr 18px;
+    grid-template-columns: var(--person-image-size) 1fr;
     padding-left: 0;
     padding-right: 0;
   }
