@@ -35,6 +35,13 @@ const speakers = [
     status: "Confirmed",
   },
   {
+    name: "Gordon Cheng",
+    affiliation: "Technical University of Munich",
+    image: "/people/gordon-cheng.jpg",
+    url: "https://www.ce.cit.tum.de/en/ics/people/cheng/",
+    status: "Confirmed",
+  },
+  {
     name: "Roberto Calandra",
     affiliation: "TU Dresden",
     image: "/people/roberto-calandra.png",
