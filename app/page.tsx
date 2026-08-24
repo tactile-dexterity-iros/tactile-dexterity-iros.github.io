@@ -203,7 +203,7 @@ export default function Home() {
           </div>
           <div className="deadline">
             <small>Paper deadline</small>
-            <strong><time dateTime="2026-08-24T23:59:00-04:00">August 24 · 23:59 GMT−4</time></strong>
+            <strong><time dateTime="2026-08-28T23:59:00-04:00">August 28 · 23:59 GMT−4</time></strong>
           </div>
         </div>
       </section>
@@ -363,7 +363,7 @@ export default function Home() {
         <div className="cfp-details" aria-label="Submission dates and link">
           <div>
             <span>Paper deadline</span>
-            <strong><time dateTime="2026-08-24T23:59:00-04:00">August 24, 2026</time></strong>
+            <strong><time dateTime="2026-08-28T23:59:00-04:00">August 28, 2026</time></strong>
             <small>23:59 GMT−4</small>
           </div>
           <div>
