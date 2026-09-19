@@ -41,16 +41,23 @@ const speakers = [
     url: "https://www.ce.cit.tum.de/en/ics/people/cheng/",
     status: "Confirmed",
   },
-  {
-    name: "Roberto Calandra",
-    affiliation: "TU Dresden",
-    image: "/people/roberto-calandra.png",
-    url: "https://lasr.org/people/roberto-calandra",
-    status: "Tentative",
-  },
 ];
 
 const panelists = [
+  {
+    name: "Greg Hager",
+    affiliation: "Johns Hopkins University",
+    role: "Moderator",
+    image: "/people/greg-hager.jpg",
+    url: "https://www.cs.jhu.edu/hager/",
+  },
+  ...speakers.map((speaker) => ({
+    name: speaker.name,
+    affiliation: speaker.affiliation,
+    role: "Panelist",
+    image: speaker.image,
+    url: speaker.url,
+  })),
   {
     name: "Krishna Murthy Jatavallabhula",
     affiliation: "Johns Hopkins University",
@@ -59,12 +66,61 @@ const panelists = [
     url: "https://www.cs.jhu.edu/faculty/krishna-murthy-jatavallabhula/",
   },
   {
-    name: "Greg Hager",
-    affiliation: "Johns Hopkins University",
-    role: "Moderator",
-    image: "/people/greg-hager.jpg",
-    url: "https://www.cs.jhu.edu/hager/",
+    name: "Binghao Huang",
+    affiliation: "Columbia University",
+    role: "Panelist",
+    image: "/people/binghao-huang.jpg",
+    url: "https://binghao-huang.github.io/",
   },
+];
+
+const schedule = [
+  { time: "1:30", end: "1:40", title: "Welcome remarks", kind: "break" },
+  { time: "1:40", end: "2:00", title: "Gordon Cheng", label: "Invited talk 1", kind: "talk" },
+  { time: "2:00", end: "2:20", title: "Edward Adelson", label: "Invited talk 2", kind: "talk" },
+  {
+    time: "2:20",
+    end: "2:40",
+    title: "Contributed spotlight talks · Session I",
+    label: "Spotlights",
+    kind: "spotlight",
+    papers: [
+      { time: "2:20", title: "Contact-Grounded Policy: Dexterous Visuotactile Policy with Generative Contact Grounding" },
+      { time: "2:30", title: "Multi-Resolution Tactile Imitation Learning for Contact-Rich Robotic Manipulation" },
+    ],
+  },
+  { time: "2:40", end: "3:00", title: "Yunzhu Li", label: "Invited talk 3", kind: "talk" },
+  { time: "3:00", end: "3:20", title: "Ruihan Gao", label: "Invited talk 4", kind: "talk" },
+  {
+    time: "3:20",
+    end: "4:00",
+    title: "Coffee break · Poster and demo session",
+    label: "Posters & demos",
+    kind: "posters",
+    note: "Posters are 4 ft × 4 ft.",
+  },
+  {
+    time: "4:00",
+    end: "4:20",
+    title: "Contributed spotlight talks · Session II",
+    label: "Spotlights",
+    kind: "spotlight",
+    papers: [
+      { time: "4:00", title: "Learning Hierarchical Tactile-Aware Policies for Quadrupedal Loco-Manipulation" },
+      { time: "4:10", title: "MagPie: A Magnetic-Piezoresistive Tactile Skin" },
+    ],
+  },
+  { time: "4:20", end: "4:40", title: "Raunaq Bhirangi", label: "Invited talk 5", kind: "talk" },
+  {
+    time: "4:40",
+    end: "5:20",
+    title: "Panel discussion and debate",
+    label: "Panel",
+    kind: "panel",
+    note: "Moderated by Greg Hager, with all invited speakers, Krishna Murthy Jatavallabhula, and Binghao Huang.",
+  },
+  { time: "5:20", end: "5:30", title: "Closing remarks", kind: "break" },
+  { time: "5:30", title: "End", kind: "break" },
 ];
 
 const openReviewUrl = "https://openreview.net/group?id=IEEE.org/IROS/2026/Workshop/Scalable_Tactile_Manipulation#tab-your-consoles";
@@ -139,6 +195,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#speakers">Speakers</a>
+          <a href="#schedule">Schedule</a>
           <a href="#call-for-papers">Call for papers</a>
           <a href="#organizers">Organizers</a>
         </nav>
@@ -195,7 +252,7 @@ export default function Home() {
           </div>
           <div>
             <small>Time</small>
-            <strong>1:00–5:30 PM</strong>
+            <strong>1:30–5:30 PM</strong>
           </div>
           <div>
             <small>Format</small>
@@ -232,7 +289,7 @@ export default function Home() {
             <p className="kicker">02 / Invited speakers</p>
             <h2>Across sensing, learning, and manipulation.</h2>
           </div>
-          <p>Confirmed and tentative invited speakers from academia and industry.</p>
+          <p>Confirmed invited speakers from academia and industry.</p>
         </div>
         <div className="speaker-grid">
           {speakers.map((speaker, index) => (
@@ -285,15 +342,45 @@ export default function Home() {
               </div>
             </a>
           ))}
-          <div className="panelist-card panelist-card-placeholder">
-            <span className="panelist-placeholder-mark" aria-hidden="true">+</span>
-            <div>
-              <span className="panelist-role">Coming soon</span>
-              <h3>Additional panelists</h3>
-              <p>More names will be revealed soon.</p>
-            </div>
-          </div>
         </div>
+      </section>
+
+      <section className="section schedule-section" id="schedule">
+        <div className="panelists-heading">
+          <div>
+            <p className="kicker">04 / Schedule</p>
+            <h2>Program</h2>
+          </div>
+          <p>
+            <time dateTime="2026-09-27">Sunday, September 27, 2026</time> · Pittsburgh. All times are local (EDT, GMT−4).
+          </p>
+        </div>
+        <ol className="schedule-list">
+          {schedule.map((item) => (
+            <li className={`schedule-item schedule-${item.kind}`} key={`${item.time}-${item.title}`}>
+              <span className="schedule-time">
+                {item.time}
+                {item.end ? `–${item.end}` : ""}
+                <small>PM</small>
+              </span>
+              <div className="schedule-body">
+                {item.label ? <span className="schedule-label">{item.label}</span> : null}
+                <h3>{item.title}</h3>
+                {item.note ? <p>{item.note}</p> : null}
+                {item.papers ? (
+                  <ul className="schedule-papers">
+                    {item.papers.map((paper) => (
+                      <li key={paper.title}>
+                        <span>{paper.time}</span>
+                        <p>{paper.title}</p>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="section objectives-section" aria-labelledby="objectives-title">
@@ -313,7 +400,7 @@ export default function Home() {
 
       <section className="section structure" id="format">
         <div className="structure-header">
-          <p className="kicker kicker-light">04 / Workshop format</p>
+          <p className="kicker kicker-light">05 / Workshop format</p>
           <h2>Built for exchange.</h2>
         </div>
         <div className="structure-grid">
@@ -325,7 +412,7 @@ export default function Home() {
           <article>
             <span className="format-index">B</span>
             <h3>Posters &amp; live demos</h3>
-            <p>A coffee-break session featuring up to 20 posters alongside interactive tactile systems and research prototypes.</p>
+            <p>A coffee-break session featuring up to 20 posters alongside interactive tactile systems and research prototypes. Posters are 4 ft × 4 ft.</p>
           </article>
           <article>
             <span className="format-index">C</span>
@@ -348,7 +435,7 @@ export default function Home() {
 
       <section className="section cfp" id="call-for-papers">
         <div className="cfp-heading">
-          <p className="kicker kicker-light">05 / Call for papers</p>
+          <p className="kicker kicker-light">06 / Call for papers</p>
           <h2>Share work that moves touch from the lab into the world.</h2>
         </div>
         <div className="cfp-copy rich-copy rich-copy-light">
@@ -369,7 +456,7 @@ export default function Home() {
           <div>
             <span>Workshop</span>
             <strong><time dateTime="2026-09-27">September 27, 2026</time></strong>
-            <small>1:00–5:30 PM · Pittsburgh</small>
+            <small>1:30–5:30 PM · Pittsburgh</small>
           </div>
           <a className="cfp-submit" href={openReviewUrl} target="_blank" rel="noreferrer">
             Submit on OpenReview <Arrow />
@@ -405,7 +492,7 @@ export default function Home() {
       </section>
 
       <section className="section organizers-section" id="organizers">
-        <p className="kicker organizers-kicker">06 / Organizers</p>
+        <p className="kicker organizers-kicker">07 / Organizers</p>
         <div className="organizer-grid">
           {organizers.map((organizer) => (
             <a

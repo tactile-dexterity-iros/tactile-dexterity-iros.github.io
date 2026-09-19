@@ -874,8 +874,13 @@ h1 em {
   transition: background 160ms ease;
 }
 
+.panelist-card:nth-child(3n),
 .panelist-card:last-child {
   border-right: 0;
+}
+
+.panelist-card:nth-child(n + 4) {
+  border-top: 1px solid var(--line);
 }
 
 a.panelist-card:hover,
@@ -933,6 +938,111 @@ a.panelist-card:focus-visible {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 38px;
   justify-content: center;
+}
+
+.schedule-section {
+  background: var(--paper-bright);
+  border-top: 1px solid var(--line);
+}
+
+.schedule-list {
+  border-top: 1px solid var(--ink);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-item {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  padding: 22px 0;
+}
+
+.schedule-time {
+  font-family: var(--display);
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.schedule-time small {
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin-left: 6px;
+}
+
+.schedule-label {
+  color: var(--blue);
+  display: block;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.schedule-spotlight .schedule-label,
+.schedule-posters .schedule-label {
+  color: var(--coral);
+}
+
+.schedule-body h3 {
+  font-size: clamp(20px, 1.8vw, 26px);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.schedule-body > p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 8px 0 0;
+}
+
+.schedule-break .schedule-body h3 {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.schedule-posters {
+  background: color-mix(in srgb, var(--lime) 35%, transparent);
+  margin: 0 -18px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.schedule-papers {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.schedule-papers li {
+  border-top: 1px dashed var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  padding: 10px 0;
+}
+
+.schedule-papers span {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+
+.schedule-papers p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .cfp {
@@ -1421,9 +1531,11 @@ footer a {
   }
 
   .panelist-card,
+  .panelist-card:nth-child(n + 4),
   .panelist-card:last-child {
     border-bottom: 1px solid var(--line);
     border-right: 0;
+    border-top: 0;
   }
 
   .panelist-card:last-child {
@@ -1489,6 +1601,21 @@ footer a {
 }
 
 @media (max-width: 560px) {
+  .schedule-item {
+    gap: 6px;
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-time {
+    font-size: 18px;
+  }
+
+  .schedule-posters {
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   :root {
     --person-image-size: 68px;
     --person-name-size: 18px;

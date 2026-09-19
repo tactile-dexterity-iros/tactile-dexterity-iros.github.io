@@ -44,13 +44,14 @@ test("server-renders the IROS 2026 workshop page", async () => {
   assert.ok(html.indexOf("Panelists") < html.indexOf("Four objectives"));
   assert.match(html, /Krishna Murthy Jatavallabhula/);
   assert.match(html, /Moderator/);
-  assert.match(html, /More names will be revealed soon\./);
+  assert.match(html, /Binghao Huang/);
+  assert.doesNotMatch(html, /More names will be revealed soon\./);
   assert.match(html, /href="https:\/\/openreview\.net\/group\?id=IEEE\.org\/IROS\/2026\/Workshop\/Scalable_Tactile_Manipulation#tab-your-consoles"/);
   assert.doesNotMatch(html, /Submission information|OpenReview portal coming soon/);
   assert.doesNotMatch(html, /not a sequence of passive talks/i);
 });
 
-test("omits the workshop agenda and starter preview", async () => {
+test("renders the workshop program and omits the starter preview", async () => {
   const response = await render();
   const html = await response.text();
   const [page, packageJson] = await Promise.all([
@@ -58,7 +59,9 @@ test("omits the workshop agenda and starter preview", async () => {
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.doesNotMatch(html, />\s*Schedule\s*</i);
+  assert.match(html, />\s*Program\s*</);
+  assert.match(html, /MagPie: A Magnetic-Piezoresistive Tactile Skin/);
+  assert.match(html, /4 ft × 4 ft/);
   assert.doesNotMatch(html, /8:30|12:30/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
   assert.doesNotMatch(page, /SkeletonPreview|_sites-preview/);
