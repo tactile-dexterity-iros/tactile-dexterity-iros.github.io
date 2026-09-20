@@ -79,6 +79,13 @@ const panelists = [
     image: "/people/binghao-huang.jpg",
     url: "https://binghao-huang.github.io/",
   },
+  {
+    name: "Raunaq Bhirangi",
+    affiliation: "Co-founder, Stealth Startup",
+    role: "Panelist",
+    image: "/people/raunaq-bhirangi.jpg",
+    url: "https://raunaqb.com/",
+  },
 ];
 
 const schedule = [
@@ -97,7 +104,7 @@ const schedule = [
     ],
   },
   { time: "2:40", end: "3:00", title: "Yunzhu Li", label: "Invited talk 3", kind: "talk" },
-  { time: "3:00", end: "3:20", title: "Ruihan Gao", label: "Invited talk 4", kind: "talk" },
+  { time: "3:00", end: "3:20", title: "Raunaq Bhirangi", label: "Invited talk 4", kind: "talk" },
   {
     time: "3:20",
     end: "4:00",
@@ -117,14 +124,14 @@ const schedule = [
       { time: "4:10", title: "MagPie: A Magnetic-Piezoresistive Tactile Skin" },
     ],
   },
-  { time: "4:20", end: "4:40", title: "Raunaq Bhirangi", label: "Invited talk 5", kind: "talk" },
+  { time: "4:20", end: "4:40", title: "Ruihan Gao", label: "Invited talk 5", kind: "talk" },
   {
     time: "4:40",
     end: "5:20",
     title: "Panel discussion and debate",
     label: "Panel",
     kind: "panel",
-    note: "Moderated by Greg Hager, with Krishna Murthy Jatavallabhula, Edward Adelson, Gordon Cheng, and Binghao Huang.",
+    note: "Moderated by Greg Hager, with Krishna Murthy Jatavallabhula, Edward Adelson, Gordon Cheng, Binghao Huang, and Raunaq Bhirangi.",
   },
   { time: "5:20", end: "5:30", title: "Closing remarks", kind: "break" },
   { time: "5:30", title: "End", kind: "break" },
