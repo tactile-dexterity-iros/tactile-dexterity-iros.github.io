@@ -86,6 +86,13 @@ const panelists = [
     image: "/people/raunaq-bhirangi.jpg",
     url: "https://raunaqb.com/",
   },
+  {
+    name: "Ruihan Gao",
+    affiliation: "Carnegie Mellon University",
+    role: "Panelist",
+    image: "/people/ruihan-gao.jpg",
+    url: "https://ruihangao.github.io/",
+  },
 ];
 
 const schedule = [
@@ -131,7 +138,7 @@ const schedule = [
     title: "Panel discussion and debate",
     label: "Panel",
     kind: "panel",
-    note: "Moderated by Greg Hager, with Krishna Murthy Jatavallabhula, Edward Adelson, Gordon Cheng, Binghao Huang, and Raunaq Bhirangi.",
+    note: "Moderated by Greg Hager, with Krishna Murthy Jatavallabhula, Edward Adelson, Gordon Cheng, Binghao Huang, Raunaq Bhirangi, and Ruihan Gao.",
   },
   { time: "5:20", end: "5:30", title: "Closing remarks", kind: "break" },
   { time: "5:30", title: "End", kind: "break" },
