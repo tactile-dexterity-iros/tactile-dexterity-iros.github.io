@@ -429,7 +429,7 @@ h1 em {
   bottom: 0;
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   left: clamp(24px, 4.5vw, 76px);
   position: absolute;
   right: clamp(24px, 4.5vw, 76px);

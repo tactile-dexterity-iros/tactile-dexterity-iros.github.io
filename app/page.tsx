@@ -276,6 +276,10 @@ export default function Home() {
             <strong>1:30–5:30 PM</strong>
           </div>
           <div>
+            <small>Rooms</small>
+            <strong>408 &amp; 409</strong>
+          </div>
+          <div>
             <small>Format</small>
             <strong>In person · Half day</strong>
           </div>
@@ -373,7 +377,7 @@ export default function Home() {
             <h2>Program</h2>
           </div>
           <p>
-            <time dateTime="2026-09-27">Sunday, September 27, 2026</time> · Pittsburgh. All times are local (EDT, GMT−4).
+            <time dateTime="2026-09-27">Sunday, September 27, 2026</time> · Rooms 408 &amp; 409, Pittsburgh. All times are local (EDT, GMT−4).
           </p>
         </div>
         <ol className="schedule-list">
@@ -477,7 +481,7 @@ export default function Home() {
           <div>
             <span>Workshop</span>
             <strong><time dateTime="2026-09-27">September 27, 2026</time></strong>
-            <small>1:30–5:30 PM · Pittsburgh</small>
+            <small>1:30–5:30 PM · Rooms 408 &amp; 409</small>
           </div>
           <a className="cfp-submit" href={openReviewUrl} target="_blank" rel="noreferrer">
             Submit on OpenReview <Arrow />
